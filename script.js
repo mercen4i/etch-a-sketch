@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-const numberOfSquares = 16;
+const numberOfSquares = 50;
 const percentage = 100/numberOfSquares;
 
 for (let i = 0; i < numberOfSquares*numberOfSquares; i++) {
@@ -12,4 +12,14 @@ for (let i = 0; i < numberOfSquares*numberOfSquares; i++) {
     container.appendChild(square); 
 }
 
+function clearCanvas() {
+    squares.forEach((square) => {
+        square.style.backgroundColor = 'white';
+    })
+}
+
 const squares = document.querySelectorAll('.square');
+const clearButton = document.createElement('button');
+clearButton.textContent = "Clear";
+container.appendChild(clearButton);
+clearButton.addEventListener('click', clearCanvas);
