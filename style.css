@@ -1,8 +1,31 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     width: 500px;
     height: 500px;
     border: 0;
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
+}
+
+.clear-button {
+    margin-top: 32px;
 }
