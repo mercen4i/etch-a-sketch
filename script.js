@@ -20,7 +20,9 @@ function createSquares() {
         square.style.margin = '0';
         square.style.width = `${percentage}%`;
         square.style.height = `${percentage}%`;
-        square.addEventListener('mouseenter', () => {square.style.backgroundColor = '#808080';});
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+        });
         container.appendChild(square); 
     }
 }
@@ -37,7 +39,20 @@ function removeSquares() {
     })
 }
 
+function psychedelicButton() {
+    let redValue = Math.floor(Math.random() * 256);
+    let blueValue = Math.floor(Math.random() * 256);
+    let greenValue = Math.floor(Math.random() * 256);
+}
+
 createSquares();
+let colorValue = 216;
 let squares = document.querySelectorAll('.square');
 const clearButton = document.querySelector('.clear-button');
 clearButton.addEventListener('click', clearCanvas);
+
+
+// When classic button is clicked, color is changed to classic color (gray) 
+// When psychedelic button is clicked, it chooses a random color from the color wheel
+
+const classicButton = document.querySelector('#classic');

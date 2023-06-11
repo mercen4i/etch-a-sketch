@@ -14,9 +14,14 @@
             <div class="container"></div>
             <div class="buttons">
                 <button class="clear-button">Clear</button>
-                <input type="range" id="size-controller" value="16" min="16" max="100" step="1">
+                <div>Size: </div>
+                <input type="range" id="size-controller" value="16" min="16" max="100" step="10">
+                <div>Mode: </div>
+                <button id="classic">Classic</button>
+                <button id="psychedelic">Psychedelic</button>
+                <button id="single-color">Color <input type="color" id="color-selector"></button>
             </div>
         </div>
-        
+        <div class="footer"></div>
     </body>
 </html>

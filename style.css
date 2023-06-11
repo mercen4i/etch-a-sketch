@@ -1,31 +1,51 @@
+@font-face {
+    font-family: Lobster;
+    src: url(./fonts/Lobster-Regular.ttf)
+}
+
 body {
     height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: #78CCCB;
 }
 
 .header {
     text-align: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    padding-left: 15px;
+    margin: 18px 0px;
+    font-family: Lobster, cursive;
+    font-size: 64px;
+    font-weight: bold;
+    color: #FFED66;
 }
 
 .content {
+    width: 850px;
+    padding: 48px 0px;
+    border-radius: 16px;
+    align-self: center;
     display: flex;
-    flex: 1;
     flex-direction: column;
     align-items: center;
+    background-color: #FF483F;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     border: 0;
     display: flex;
     flex-wrap: wrap;
+    background-color: white;
 }
 
-.clear-button {
-    margin-top: 32px;
+.buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    gap: 8px;
 }
+
