@@ -2,6 +2,7 @@ const container = document.querySelector('.container');
 const sizeController = document.querySelector('#size-controller');
 let numberOfSquares = sizeController.value;
 let percentage = 100/numberOfSquares;
+
 sizeController.addEventListener('change', function() {
     sizeController.setAttribute('value', sizeController.value);
     numberOfSquares = sizeController.value;
@@ -20,9 +21,6 @@ function createSquares() {
         square.style.margin = '0';
         square.style.width = `${percentage}%`;
         square.style.height = `${percentage}%`;
-        square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
-        });
         container.appendChild(square); 
     }
 }
@@ -39,20 +37,57 @@ function removeSquares() {
     })
 }
 
-function psychedelicButton() {
-    let redValue = Math.floor(Math.random() * 256);
-    let blueValue = Math.floor(Math.random() * 256);
-    let greenValue = Math.floor(Math.random() * 256);
+function setToClassic() {
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'black';
+            square.style.opacity = 0.2;
+        });
+    });
 }
 
-createSquares();
-let colorValue = 216;
-let squares = document.querySelectorAll('.square');
+function setToPsychedelic() {
+    let redValue = 0;
+    let blueValue = 0;
+    let greenValue = 0;
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', () => {
+            redValue = Math.floor(Math.random() * 256);
+            blueValue = Math.floor(Math.random() * 256);
+            greenValue = Math.floor(Math.random() * 256);
+            square.style.opacity = 1;
+            square.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+        });
+    });
+}
+
+function setToCustom() {
+    let customColor = colorSelector.value;
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = customColor;
+            square.style.opacity = 1;
+        });
+    });
+    colorSelector.addEventListener('change', function() {
+        colorSelector.setAttribute('value', colorSelector.value);
+        customColor = colorSelector.value;
+    })
+}
+
 const clearButton = document.querySelector('.clear-button');
 clearButton.addEventListener('click', clearCanvas);
 
-
-// When classic button is clicked, color is changed to classic color (gray) 
-// When psychedelic button is clicked, it chooses a random color from the color wheel
-
 const classicButton = document.querySelector('#classic');
+classicButton.addEventListener('click', setToClassic);
+
+const psychedelicButton = document.querySelector('#psychedelic');
+psychedelicButton.addEventListener('click', setToPsychedelic);
+
+const customButton = document.querySelector('#custom');
+const colorSelector = document.querySelector('#color-selector');
+customButton.addEventListener('click', setToCustom);
+
+createSquares();
+let squares = document.querySelectorAll('.square');
+setToClassic();
